@@ -107,7 +107,6 @@ function cartMarkup() {
   if (!entries.length) {
     return `
       <p class="cart-drawer-empty">Your cart is empty.</p>
-      <a class="btn btn-primary" href="${menuHref()}">Add signature rolls</a>
     `;
   }
 
