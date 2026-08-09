@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toro — Sushi Hand Roll Bar · Seattle</title>
+    <meta
+      name="description"
+      content="Fresh, seasonal fish hand-rolled to order. Pickup or delivery across Seattle."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Outfit:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body id="top">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="#top" aria-label="Toro home">TORO</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="#menu">Menu</a>
+          <a href="#about">About</a>
+          <a href="#location">Location</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="cart-btn"
+            type="button"
+            data-cart-toggle
+            aria-expanded="false"
+            aria-controls="cart-drawer"
+            aria-label="Cart, 0 items"
+          >
+            <img src="./assets/icons/cart.svg" alt="" width="22" height="22" />
+            <span class="cart-count" data-cart-count>0</span>
+          </button>
+          <a class="btn btn-primary" href="#menu">Order Now</a>
+        </div>
+        <div class="header-tools">
+          <button
+            class="cart-btn cart-btn--mobile"
+            type="button"
+            data-cart-toggle
+            data-mobile-cart
+            aria-expanded="false"
+            aria-controls="cart-drawer"
+            aria-label="Cart, 0 items"
+            hidden
+          >
+            <img src="./assets/icons/cart.svg" alt="" width="22" height="22" />
+            <span class="cart-count" data-cart-count>0</span>
+          </button>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span class="hamburger" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <nav id="mobile-nav" class="header-panel mobile-nav" hidden>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#location">Location</a>
+        <button class="header-panel-link" type="button" data-open-cart>Cart</button>
+        <a class="btn btn-primary" href="#menu">Order Now</a>
+      </nav>
+      <div id="cart-drawer" class="header-panel cart-drawer" hidden>
+        <div class="cart-drawer-header">
+          <p class="cart-drawer-title">Order</p>
+          <button
+            class="cart-drawer-edit"
+            type="button"
+            data-cart-edit
+            aria-pressed="false"
+            hidden
+          >
+            Edit
+          </button>
+        </div>
+        <div data-cart-drawer-body></div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-label="Hero">
+        <div class="hero-media" aria-hidden="true">
+          <img
+            src="./assets/img/roll-1.jpg"
+            alt=""
+            class="hero-image"
+            fetchpriority="high"
+          />
+          <div class="hero-veil"></div>
+        </div>
+        <div class="shell hero-panel">
+          <div class="hero-content">
+            <p class="eyebrow animate-in">Sushi Hand Roll Bar · Seattle</p>
+            <h1 class="brand-hero animate-in delay-1">TORO</h1>
+            <p class="hero-line animate-in delay-2">Hand-rolled, right when you order.</p>
+            <p class="hero-support animate-in delay-3">
+              Fresh, seasonal fish — pickup or delivery across Seattle.
+            </p>
+            <div class="hero-ctas animate-in delay-4">
+              <a class="btn btn-secondary btn-lg" href="#menu">View Menu</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="featured panel-section" id="menu" aria-labelledby="featured-title">
+        <div class="shell">
+          <div class="section-head">
+            <p class="eyebrow">Signature rolls</p>
+            <h2 id="featured-title">Made to order</h2>
+            <p class="section-support">A few of the rolls Seattle keeps coming back for.</p>
+          </div>
+          <div class="product-grid">
+            <article class="product">
+              <div class="product-media">
+                <img src="./assets/img/roll-1.jpg" alt="Spicy tuna hand-rolled sushi tube" />
+              </div>
+              <div class="product-body">
+                <span class="tag">Spicy</span>
+                <h3>Spicy Tuna</h3>
+                <p>Bluefin tuna, scallion, spicy mayo, nori</p>
+                <div class="product-foot">
+                  <span class="price">$6.50</span>
+                  <button class="btn btn-primary btn-sm" type="button" data-add="spicy-tuna">
+                    Add
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="product">
+              <div class="product-media">
+                <img src="./assets/img/roll-2.jpg" alt="Salmon hand-rolled sushi tube" />
+              </div>
+              <div class="product-body">
+                <span class="tag">Classic</span>
+                <h3>Salmon</h3>
+                <p>Fresh salmon, avocado, cucumber, nori</p>
+                <div class="product-foot">
+                  <span class="price">$6.50</span>
+                  <button class="btn btn-primary btn-sm" type="button" data-add="salmon">
+                    Add
+                  </button>
+                </div>
+              </div>
+            </article>
+            <article class="product">
+              <div class="product-media">
+                <img src="./assets/img/roll-3.jpg" alt="Bluefin chutoro hand-rolled sushi tube" />
+              </div>
+              <div class="product-body">
+                <span class="tag">Signature</span>
+                <h3>Bluefin Chutoro</h3>
+                <p>Medium fatty tuna, scallion, light soy</p>
+                <div class="product-foot">
+                  <span class="price">$10.50</span>
+                  <button class="btn btn-primary btn-sm" type="button" data-add="chutoro">
+                    Add
+                  </button>
+                </div>
+              </div>
+            </article>
+          </div>
+          <div class="section-cta">
+            <a class="btn btn-secondary" href="#menu">Browse rolls</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="about panel-section" id="about" aria-labelledby="about-title">
+        <div class="shell about-grid">
+          <div class="about-copy">
+            <p class="eyebrow">Our craft</p>
+            <h2 id="about-title">Crafted by hand, one roll at a time.</h2>
+            <p>
+              Toro is a Seattle hand roll bar built around precision and freshness —
+              seasonal fish, rolled when you order, served without the noise.
+            </p>
+            <a class="text-link" href="#location">Find us in Seattle →</a>
+          </div>
+          <div class="about-visual">
+            <img src="./assets/img/roll-2.jpg" alt="Hand-rolled salmon sushi tube with avocado and cucumber" />
+          </div>
+        </div>
+      </section>
+
+      <div class="visit-screen" id="location">
+        <section class="location panel-section" aria-labelledby="location-title">
+          <div class="shell location-grid">
+            <div>
+              <p class="eyebrow">Visit</p>
+              <h2 id="location-title">Seattle</h2>
+              <p class="address">123 Pike Street<br />Seattle, WA 98101</p>
+              <dl class="hours">
+                <div>
+                  <dt>Hours</dt>
+                  <dd>Mon – Sun · 11:30 AM – 9:00 PM</dd>
+                </div>
+                <div>
+                  <dt>Order</dt>
+                  <dd>Pickup &amp; delivery across Seattle</dd>
+                </div>
+              </dl>
+              <a class="btn btn-primary" href="#menu">Order for pickup</a>
+            </div>
+            <div class="map-panel" role="img" aria-label="Map placeholder for Seattle location">
+              <p>Pike Street · Seattle</p>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <div class="shell footer-inner">
+            <div class="footer-brand">
+              <a class="footer-logo" href="#top" aria-label="Toro home">
+                <img
+                  src="./assets/img/logo_toro_small.png"
+                  alt="TORO"
+                  width="168"
+                  height="48"
+                />
+              </a>
+              <p class="eyebrow">Sushi Hand Roll Bar</p>
+            </div>
+            <!-- <nav class="footer-nav" aria-label="Footer">
+              <a href="#menu">Menu</a>
+              <a href="#about">About</a>
+              <a href="#location">Location</a>
+              <a href="./cart.html">Cart</a>
+            </nav> -->
+            <p class="footer-meta">@torohandrollbar · Secure checkout with Stripe</p>
+          </div>
+        </footer>
+      </div>
+    </main>
+
+    <div class="toast" role="status" aria-live="polite" hidden></div>
+    <script src="./app.js"></script>
+  </body>
+</html>

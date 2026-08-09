@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Toro — Color Palette</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Outfit:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <style>
+      .palette-page {
+        padding: 3rem 0 4rem;
+      }
+
+      .palette-page h1 {
+        margin: 0.5rem 0 0.35rem;
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4vw, 2.75rem);
+        color: var(--accent);
+      }
+
+      .palette-intro {
+        margin: 0 0 2rem;
+        color: var(--text-muted);
+        max-width: 40rem;
+        line-height: 1.55;
+      }
+
+      .swatch-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+
+      .swatch {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        background: var(--bg-secondary);
+      }
+
+      .swatch-color {
+        height: 96px;
+      }
+
+      .swatch-meta {
+        padding: 0.9rem 1rem 1.1rem;
+      }
+
+      .swatch-meta strong {
+        display: block;
+        font-family: var(--font-display);
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      .swatch-meta code {
+        display: block;
+        margin-top: 0.35rem;
+        font-size: 0.85rem;
+        color: var(--accent);
+      }
+
+      .swatch-meta p {
+        margin: 0.45rem 0 0;
+        font-size: 0.85rem;
+        color: var(--text-muted);
+        line-height: 1.4;
+      }
+
+      .palette-note {
+        margin-top: 2.5rem;
+        padding: 1.25rem 1.4rem;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        background: color-mix(in srgb, var(--surface) 85%, transparent);
+        max-width: 40rem;
+      }
+
+      .palette-note a {
+        color: var(--accent);
+        font-weight: 500;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="./index.html">TORO</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="./index.html#menu">Menu</a>
+          <a href="./index.html#about">About</a>
+          <a href="./index.html#location">Location</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-primary" href="./index.html">Back to site</a>
+        </div>
+      </div>
+    </header>
+
+    <main class="shell palette-page">
+      <p class="eyebrow">Design tokens</p>
+      <h1>Color palette</h1>
+      <p class="palette-intro">
+        Live swatches from <code>styles.css</code>. To change colors, edit
+        <code>docs/COLOR_PALETTE.md</code> and ask the agent to apply the palette.
+      </p>
+
+      <div class="swatch-grid" id="swatches"></div>
+
+      <div class="palette-note">
+        <p>
+          Source of truth:
+          <a href="../docs/COLOR_PALETTE.md">docs/COLOR_PALETTE.md</a>
+        </p>
+      </div>
+    </main>
+
+    <script>
+      const tokens = [
+        ["bg-primary", "Main page background"],
+        ["bg-secondary", "Nav, footer, darker sections"],
+        ["surface", "Cards, panels, inputs"],
+        ["accent", "Buttons, links, tags"],
+        ["accent-hover", "Hover states"],
+        ["text-primary", "Headings and body text"],
+        ["text-muted", "Captions and secondary text"],
+        ["border", "Borders and dividers"],
+        ["error", "Errors / destructive"],
+        ["success", "Success states"],
+      ];
+
+      const root = getComputedStyle(document.documentElement);
+      const grid = document.getElementById("swatches");
+
+      for (const [name, use] of tokens) {
+        const value = root.getPropertyValue("--" + name).trim();
+        const card = document.createElement("article");
+        card.className = "swatch";
+        card.innerHTML =
+          '<div class="swatch-color" style="background:var(--' +
+          name +
+          ')"></div>' +
+          '<div class="swatch-meta"><strong>' +
+          name +
+          "</strong><code>" +
+          value +
+          "</code><p>" +
+          use +
+          "</p></div>";
+        grid.appendChild(card);
+      }
+    </script>
+  </body>
+</html>

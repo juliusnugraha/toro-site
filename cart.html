@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cart — Toro</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Outfit:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="./index.html">TORO</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="./index.html#menu">Menu</a>
+          <a href="./index.html#about">About</a>
+          <a href="./index.html#location">Location</a>
+        </nav>
+        <div class="nav-actions">
+          <button
+            class="cart-btn"
+            type="button"
+            data-cart-toggle
+            aria-expanded="false"
+            aria-controls="cart-drawer"
+            aria-label="Cart, 0 items"
+          >
+            <img src="./assets/icons/cart.svg" alt="" width="22" height="22" />
+            <span class="cart-count" data-cart-count>0</span>
+          </button>
+          <a class="btn btn-primary" href="./menu.html">Order Now</a>
+        </div>
+        <div class="header-tools">
+          <button
+            class="cart-btn cart-btn--mobile"
+            type="button"
+            data-cart-toggle
+            data-mobile-cart
+            aria-expanded="false"
+            aria-controls="cart-drawer"
+            aria-label="Cart, 0 items"
+            hidden
+          >
+            <img src="./assets/icons/cart.svg" alt="" width="22" height="22" />
+            <span class="cart-count" data-cart-count>0</span>
+          </button>
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span class="hamburger" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <nav id="mobile-nav" class="header-panel mobile-nav" hidden>
+        <a href="./index.html#menu">Menu</a>
+        <a href="./index.html#about">About</a>
+        <a href="./index.html#location">Location</a>
+        <button class="header-panel-link" type="button" data-open-cart>Cart</button>
+      </nav>
+      <div id="cart-drawer" class="header-panel cart-drawer" hidden>
+        <div class="cart-drawer-header">
+          <p class="cart-drawer-title">Order</p>
+          <button
+            class="cart-drawer-edit"
+            type="button"
+            data-cart-edit
+            aria-pressed="false"
+            hidden
+          >
+            Edit
+          </button>
+        </div>
+        <div data-cart-drawer-body></div>
+      </div>
+    </header>
+    <main class="shell">
+      <div class="page-hero cart-page-hero">
+        <div class="cart-drawer-header">
+          <div>
+            <p class="eyebrow">Checkout</p>
+            <h1>Cart</h1>
+          </div>
+          <button
+            class="cart-drawer-edit"
+            type="button"
+            data-cart-edit
+            aria-pressed="false"
+            hidden
+          >
+            Edit
+          </button>
+        </div>
+      </div>
+      <div class="page-panel cart-drawer" data-cart-page>
+        <p class="cart-drawer-empty">Your cart is empty.</p>
+        <a class="btn btn-primary" href="./index.html#menu">Add signature rolls</a>
+      </div>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
