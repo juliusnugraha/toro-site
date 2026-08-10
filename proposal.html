@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Proposal — Toro Sushi Hand Roll Bar</title>
+    <meta
+      name="description"
+      content="Engineering project proposal for Toro Sushi Hand Roll Bar online ordering and admin portal."
+    />
+    <meta name="robots" content="noindex" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,400&family=Outfit:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body id="top" class="proposal-page">
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header">
+      <div class="shell header-inner">
+        <a class="wordmark" href="./index.html" aria-label="Toro home">TORO</a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="./index.html">Home</a>
+          <a href="./menu.html">Menu</a>
+          <a href="./index.html#about">About</a>
+        </nav>
+        <div class="nav-actions">
+          <a class="btn btn-secondary" href="./index.html">Back to site</a>
+        </div>
+        <div class="header-tools">
+          <button
+            class="menu-toggle"
+            type="button"
+            aria-label="Open menu"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+          >
+            <span class="hamburger" aria-hidden="true">
+              <span></span>
+              <span></span>
+              <span></span>
+            </span>
+          </button>
+        </div>
+      </div>
+      <nav id="mobile-nav" class="header-panel mobile-nav" hidden>
+        <a href="./index.html">Home</a>
+        <a href="./menu.html">Menu</a>
+        <a href="./index.html#about">About</a>
+        <a class="btn btn-primary" href="./index.html">Back to site</a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="proposal-hero">
+        <div class="shell">
+          <p class="eyebrow">Engineering project proposal</p>
+          <h1 class="proposal-title">Toro Sushi Hand Roll Bar</h1>
+          <p class="proposal-lede">
+            Branded online ordering and internal admin portal — Seattle, WA
+          </p>
+          <dl class="proposal-meta">
+            <div>
+              <dt>Client / Product</dt>
+              <dd>Toro Sushi Hand Roll Bar</dd>
+            </div>
+            <div>
+              <dt>Date</dt>
+              <dd>August 10, 2026</dd>
+            </div>
+            <div>
+              <dt>Status</dt>
+              <dd><span class="proposal-badge">Draft for review</span></dd>
+            </div>
+          </dl>
+        </div>
+      </section>
+
+      <div class="shell proposal-body">
+        <section class="proposal-section" id="summary" aria-labelledby="summary-title">
+          <p class="eyebrow">01</p>
+          <h2 id="summary-title">Executive summary</h2>
+          <p>
+            Build a branded online ordering site and internal admin portal for Toro
+            Sushi Hand Roll Bar: customers order and pay with Stripe; kitchen/staff
+            manage orders and menu from a secure admin app.
+          </p>
+          <h3>Locked infrastructure</h3>
+          <ul class="proposal-list">
+            <li>
+              <strong>Next.js on Vultr VPS (~$5/mo)</strong> — hosts the web
+              application and API
+            </li>
+            <li>
+              <strong>Supabase</strong> — Postgres database, Auth (admin login), and
+              menu image storage
+            </li>
+            <li>
+              <strong>Stripe</strong> — checkout, refunds, and payment webhooks
+            </li>
+          </ul>
+        </section>
+
+        <section class="proposal-section" id="goals" aria-labelledby="goals-title">
+          <p class="eyebrow">02</p>
+          <h2 id="goals-title">Goals</h2>
+          <ol class="proposal-steps">
+            <li>Customers can browse the menu, cart, pay online, and see order confirmation.</li>
+            <li>Staff can log in, accept/progress orders, refund when needed, and manage the menu.</li>
+            <li>Stack stays affordable for a single restaurant while remaining maintainable.</li>
+            <li>Leave a clear path for dashboard/analytics; <strong>Phase 2</strong>.</li>
+            <li>POS hardware integration until a vendor is chosen; <strong>Phase 2</strong>.</li>
+          </ol>
+        </section>
+
+        <section class="proposal-section" id="stacks" aria-labelledby="stacks-title">
+          <p class="eyebrow">03</p>
+          <h2 id="stacks-title">Stacks</h2>
+          <ul class="proposal-list">
+            <li>
+              <strong>App framework: Next.js on Vultr.</strong> Customer site, admin
+              UI, API routes, and Stripe webhooks in one deployable app.
+            </li>
+            <li>
+              <strong>App hosting: Vultr VPS at ~$5/month.</strong> Fixed-cost Linux
+              VM for the Next.js app, reverse proxy (Nginx), SSL, and Stripe webhook
+              endpoint.
+            </li>
+            <li>
+              <strong>Database + Auth + file storage: Supabase.</strong> Managed
+              Postgres for orders/menu/customers; Supabase Auth for staff roles;
+              Supabase Storage for menu photos.
+            </li>
+            <li>
+              <strong>Payments: Stripe.</strong> Payment Element on checkout;
+              server-side webhooks on the Vultr app for paid/failed/refunded events.
+              Rules out Squarespace/WooCommerce checkout as the system of record.
+            </li>
+            <li>
+              <strong>Order type: pickup only.</strong> No delivery zones, delivery
+              fees, or address validation in scope. Delivery is out of scope unless a
+              future change order adds it.
+            </li>
+          </ul>
+        </section>
+
+        <section class="proposal-section" id="open" aria-labelledby="open-title">
+          <p class="eyebrow">04</p>
+          <h2 id="open-title">Open decisions</h2>
+          <h3>POS integration</h3>
+          <p>
+            Vendor not chosen (Square / Toast / Clover / aggregator / none).
+            <span class="proposal-badge">Phase 2</span>
+          </p>
+        </section>
+
+        <section class="proposal-section" id="mvp" aria-labelledby="mvp-title">
+          <p class="eyebrow">05</p>
+          <h2 id="mvp-title">Existing MVP site</h2>
+          <p>
+            <a
+              class="proposal-link"
+              href="https://juliusnugraha.github.io/toro-site"
+              target="_blank"
+              rel="noopener noreferrer"
+              >https://juliusnugraha.github.io/toro-site</a
+            >
+          </p>
+        </section>
+
+        <section class="proposal-section" id="phases" aria-labelledby="phases-title">
+          <p class="eyebrow">06</p>
+          <h2 id="phases-title">Scope by phase</h2>
+
+          <article class="proposal-phase">
+            <header class="proposal-phase-head">
+              <h3>Phase 1 — Launch</h3>
+              <div class="proposal-phase-stats">
+                <span><span class="label">Time</span> 3–4 weeks</span>
+                <span><span class="label">Cost</span> $2,000</span>
+              </div>
+            </header>
+            <ul class="proposal-list">
+              <li>Deploy the Next.js website on our server.</li>
+              <li>Deploy the Supabase schema + Supabase Auth (staff) on our server.</li>
+              <li>
+                Customer: <strong>guest checkout</strong> — menu from DB, cart →
+                Stripe checkout → pickup order confirmation (no customer login)
+              </li>
+              <li>
+                Admin: login, Orders (status flow + refund), Menu CRUD + images + 86
+                toggle (out-of-stock item)
+              </li>
+              <li>Stripe webhooks updating order payment status on our server.</li>
+            </ul>
+          </article>
+
+          <article class="proposal-phase">
+            <header class="proposal-phase-head">
+              <h3>Phase 2 — Operate</h3>
+              <div class="proposal-phase-stats">
+                <span><span class="label">Time</span> 3–4 weeks</span>
+                <span><span class="label">Cost</span> $1,500</span>
+              </div>
+            </header>
+            <ul class="proposal-list">
+              <li>Dashboard KPIs</li>
+              <li>Analytics (revenue, top items, peak hours)</li>
+              <li>Customers list/detail (admin)</li>
+              <li>
+                <strong>Customer login / accounts</strong> — sign up &amp; sign in,
+                order history, order status tracking, reorder
+              </li>
+              <li>POS integration once vendor is chosen</li>
+            </ul>
+          </article>
+
+          <p class="proposal-total">
+            <strong>Combined development (Phase 1 + Phase 2):</strong> $3,500
+            <span class="proposal-note">excluding POS vendor add-on, design/Figma, and monthly hosting</span>
+          </p>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer proposal-footer">
+      <div class="shell footer-inner">
+        <a class="wordmark" href="./index.html">TORO</a>
+        <p class="footer-tag">Sushi Hand Roll Bar · Project proposal (draft)</p>
+        <a class="btn btn-secondary" href="./index.html">Back to site</a>
+      </div>
+    </footer>
+
+    <script>
+      (function () {
+        var toggle = document.querySelector(".menu-toggle");
+        var nav = document.getElementById("mobile-nav");
+        if (!toggle || !nav) return;
+        toggle.addEventListener("click", function () {
+          var open = toggle.getAttribute("aria-expanded") === "true";
+          toggle.setAttribute("aria-expanded", String(!open));
+          toggle.setAttribute("aria-label", open ? "Open menu" : "Close menu");
+          nav.hidden = open;
+        });
+      })();
+    </script>
+  </body>
+</html>
